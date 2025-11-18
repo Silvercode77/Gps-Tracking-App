@@ -1,0 +1,11 @@
+<script defer>
+    setInterval(() => {
+        fetch("/GPS").then(res => {
+            console.log("1SSTT", res);
+            return res.json();
+        })
+            .then((res) => {
+                console.log("THIIIS", res);
+            })
+            .catch(() => { console.log("OMMEKK") })
+    }, 2000)</script>

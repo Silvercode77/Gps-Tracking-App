@@ -1,0 +1,326 @@
+#map { height:100%;
+  width:100%;
+  min-height: 500px }
+
+  html, body {
+    height: 100%;
+  }
+
+  .leaflet-container {
+    font-size: 16px; /* Increase if needed */
+  }
+  .leaflet-control-zoom {
+    top: 70px !important; /* Adjust this value as needed */
+  }
+/* Reset */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background-color: #fafafa;
+   padding-top: 75px;
+}
+
+/* Top Navbar */
+/* NAVBAR STYLING */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 999;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px 40px;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Segoe UI', sans-serif;
+  gap: 20px;
+}
+
+/* First row: nav items */
+.navbar-row.top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+/* Nav items styling */
+.nav-item {
+  font-size: 22px;
+  font-weight: 600;
+  margin-right: 25px;
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 6px;
+  transition: background 0.2s ease;
+}
+
+.navbar-right .login-link {
+  margin-left: 20px; /* Adjust value as needed */
+}
+
+.nav-item:hover {
+  background-color: #f0f0f0;
+  color: #2c87dd;
+}
+
+.nav-item.active {
+  border-bottom: 3px solid #2c87dd;
+  color: #2c87dd;
+}
+
+/* Search row */
+
+
+/* Ensure rest of page is pushed below navbar */
+
+/* Page Layout */
+.content {
+  display: flex;
+  height: calc(100vh - 60px);
+}
+
+.info-panel {
+  width: 400px;  /* Increased width */
+  background: white;
+  padding: 20px;  /* More reasonable padding */
+  border-right: 1px solid #ddd;
+  overflow-y: auto;  /* Added scroll if needed */
+  box-shadow: 2px 0 5px rgba(0,0,0,0.1);  /* Subtle shadow */
+}
+
+.map-panel {
+  flex: 1;
+  padding: 0;
+  background: white;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.4);
+
+    justify-content: center; /* Horizontal center */
+    align-items: center;     /* Vertical center */
+  }
+  .modal.show {
+    display: flex; /* only show when class "show" is added */
+  }
+.modal-content {
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    width: 25%;
+    height: 25%;
+    box-shadow: 0 0 15px rgba(0,0,0,0.3);
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Vertically center contents inside modal box */
+    gap: 15px;
+    position: relative;
+    align-items: stretch;
+  }
+.modal-body {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    justify-content: center;
+  }
+
+.input-box {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.login-btn {
+  padding: 10px;
+  background-color: #2c87dd;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.login-btn:hover {
+  background-color: #1160bb;
+}
+
+.close {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  font-size: 20px;
+  cursor: pointer;
+}
+.clean-classy-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 0.9em;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.clean-classy-table thead tr {
+  background-color: #2c3e50;
+  color: #ffffff;
+  text-align: left;
+}
+
+.clean-classy-table th,
+.clean-classy-table td {
+  padding: 12px 15px;
+  border-bottom: 1px solid #dddddd;
+}
+
+.clean-classy-table tbody tr:nth-of-type(even) {
+  background-color: #f8f9fa;
+}
+
+.clean-classy-table tbody tr:last-of-type td {
+  border-bottom: none;
+}
+
+.clean-classy-table tbody tr:hover {
+  background-color: #e9ecef;
+}
+/* Bus Info Panel Styles */
+.bus-info {
+  padding: 15px;
+}
+
+.bus-info h3 {
+  color: #2c3e50;
+  margin-bottom: 15px;
+  border-bottom: 2px solid #2c87dd;
+  padding-bottom: 5px;
+}
+
+.bus-details {
+  background-color: #f8f9fa;
+  padding: 15px;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+
+.bus-details p {
+  margin: 8px 0;
+  line-height: 1.4;
+}
+
+.route-info {
+  background-color: #e9ecef;
+  padding: 15px;
+  border-radius: 5px;
+}
+
+.route-info h4 {
+  margin-top: 0;
+  color: #2c3e50;
+}
+#fixtureTableContainer h3 {
+  margin-bottom: 12px;
+}
+#fixtureTableContainer h3 {
+  margin-bottom: 20px;
+}
+
+.edit-btn {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+.edit-btn:hover {
+    background-color: #45a049;
+}
+.add-btn {
+    background-color: #2196F3;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    margin-left: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.add-btn:hover {
+    background-color: #0b7dda;
+}
+
+.save-btn {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    margin-left: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.cancel-btn {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    margin-left: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.action-column {
+    width: 100px;
+    text-align: center;
+}
+
+.delete-row-btn {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 4px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.editable-row {
+    background-color: #fffde7;
+}
+
+.editable-cell {
+    background-color: #fffde7;
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+.lower-button {
+    display: block;
+    margin: 12px auto 0 auto; /* top margin, auto left/right to center */
+    width: fit-content;
+}

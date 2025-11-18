@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <link rel="stylesheet" href="map.css">
+</head>
+
+
+
+
+
+
+<body>
+    <header class="navbar">
+        <div class="navbar-row top-row">
+            <div class="navbar-left">
+                <span class="nav-item active" id="transportTab">Transport</span>
+                <span class="nav-item" id="fixturesTab">Table de planification</span>
+            </div>
+                    <div class="navbar-right">
+    <span id="loginText" class="nav-item login-link">Login</span>
+</div>
+        </div>
+
+    </header>
+
+    <main class="content">
+       <aside class="info-panel">
+    <div id="fixtureTableContainer" style="display: block;">
+    <h3>Tableau</h3>
+    <table id="fixtureTable" class="clean-classy-table">
+        <thead>
+            <tr>
+                <th>Bus ID</th>
+                <th>Destination</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Rows will be inserted here dynamically -->
+        </tbody>
+    </table>
+    <div id="editControls" style="display: none; margin-top: 15px;">
+        <button id="editFixturesBtn" class="edit-btn">Modifier le tableau</button>
+        <button id="addRowBtn" class="add-btn" style="display: none;">+ Ajouter une ligne</button>
+        <button id="saveChangesBtn" class="save-btn" style="display: none;">Sauvegarder</button>
+        <button id="cancelEditBtn" class="cancel-btn lower-button" style="display: none;">Annuler</button>
+    </div>
+</div>
+
+    <div id="busInfoContainer" style="display: none;">
+        <!-- Bus info content will be injected here -->
+    </div>
+</aside>
+        <section class="map-panel">
+            <div id="map"></div>
+        </section>
+    </main>
+
+ 
+    <!-- Login Modal -->
+
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            
+            <span class="close" id="closeModal">&times;</span>
+          
+            <h2>Connectez-vous pour continuer</h2>
+            <div class="modal-body">
+                <input type="text" placeholder="Nom d'utilisateur" class="input-box" />
+                <input type="password" placeholder="Mot de passe" class="input-box" />
+                <button class="login-btn">Connexion</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/front.js" defer></script>
+    <script src="/map.js" defer></script>
+</body>
+</html>
+
+

@@ -1,0 +1,15 @@
+This a Gps Tracking Web App where a Gps device is hooked to an esp32 and sends Gps data over mqtt to web server, to essentially track a moving bus
+
+the server then takes the data and shows the gps coordinates in real time
+
+the server also allows the developpers to add station's coordinates in the database which it can use to calculate the shortest path a bus can take to reach it
+
+Ps: note that the route calculation algorithm/engine isn't included in this repo since it is enormous in size but the calcRoute.js is almost a universal API
+that works with most other APIS , Precisely in this project OSRM was used by hosting it in a Docker containement
+
+
+Now for the esp side the arduino framework was used but an esp idf one is being developped currently
+
+TinyGpsplus was used to parse data from the Gps device
+and Pubsubclient was used to send data over mqtt 
+

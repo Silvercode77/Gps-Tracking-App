@@ -1,0 +1,7 @@
+{
+    "git.enableCommitSigning": false,
+    "git.enableCommitInput": true,
+    "git.alwaysShowStagedChangesResourceGroup": true,
+    "git.showStageChangesHint": true,
+"git.skipCommitPrompt": false
+}
